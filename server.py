@@ -8,11 +8,9 @@ def get_action(req_body):
     # login if email and password are provided
     email, password = (
         req_body.get('email', None), req_body.get('password', None))
-    print(email, password)
 
     if email is not None and password is not None:
         client = ita.Account(email, password)
-
 
     # set default values if not specified and enums 
     if (
@@ -73,7 +71,6 @@ def api():
     if request.method == 'POST':
         try:
             d = json.loads(request.data)
-            print(d)
 
             return json.dumps({'result': get_action(d)()})
         except Exception as exc:
