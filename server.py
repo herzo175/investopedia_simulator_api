@@ -12,7 +12,7 @@ def get_action(req_body):
     if email is not None and password is not None:
         client = ita.Account(email, password)
 
-    # set default values if not specified and enums 
+    # set default values if not specified and enums
     if (
         req_body['function'] == 'trade' or
             req_body['function'] == 'trade_option'):
@@ -40,7 +40,7 @@ def get_action(req_body):
         'get_quote': lambda: ita.get_quote(req_body['symbol']),
         'get_portfolio_status': lambda: client.get_portfolio_status(),
         'get_current_securities': lambda: client.get_current_securities(),
-        'get_open_trades': lambda: client.get_current_trades(),
+        'get_open_trades': lambda: client.get_open_trades(),
         'trade': lambda: (
             client.trade(
                 req_body['symbol'],
