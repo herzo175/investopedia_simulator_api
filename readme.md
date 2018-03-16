@@ -23,8 +23,13 @@ def investopedia(body):
 # Get Quote:
 quote = investopedia({
     'function': 'get_quote',
-    'symbol': s
+    'symbol': 'NFLX'
 })
+
+"""
+Response:
+{"result": 321.09}
+"""
 
 # Get portfolio status
 portfolio_status = investopedia({
@@ -33,12 +38,36 @@ portfolio_status = investopedia({
     'password': INVESTOPEDIA_PASSWORD
 })
 
+"""
+Response:
+{
+    "result": [102057.5, 51101.88, 146.27, 5.26]
+}
+"""
+
 # Get current securities
 current_securities = investopedia({
     'function': 'get_current_securities',
     'email': INVESTOPEDIA_USERNAME,
     'password': INVESTOPEDIA_PASSWORD
 })
+
+"""
+Response:
+{
+    "result": [
+        [
+            ["MU", "MICRON TECHNOLOGY, INC.", 348, 58.75, 58.84, 20476.32],
+            ["INTC", "INTEL CORPORATION", 399, 51.18, 50.88, 20301.12],
+            ["ORCL", "ORACLE CORPORATION", 390, 52.51, 52.37, 20424.3],
+            ["STX", "SEAGATE TECHNOLOGY PLC", 341, 59.9, 59.57, 20313.37],
+            ["SAP", "SAP SE SPONSORED ADR", 188, 108.61, 108.49, 20396.12]
+        ],
+        [],
+        []
+    ]
+}
+"""
 
 # Get open trades
 open_trades = investopedia({
@@ -53,7 +82,12 @@ investopedia({
     'email': INVESTOPEDIA_USERNAME,
     'password': INVESTOPEDIA_PASSWORD,
     'orderType': 'buy',
-    'symbol': s,
-    'quantity': int(num_shares)
+    'symbol': 'GOOG',
+    'quantity': 20
 })
+
+"""
+Response:
+{"result": "True"}
+"""
 ```
